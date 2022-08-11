@@ -1,0 +1,53 @@
+import sqlite3
+from query_categoria import *
+from query_todo import *
+
+conexao = sqlite3.connect("TODO.sqlite3")
+cursor = conexao.cursor()
+
+def criar():
+    consulta_categoria()
+    categoria = input("DIGITE O ID DA CATEGORIA DESEJA CRIAR UMA TAREFA: ")
+    tarefa = input("DIGITE A TAREFA QUE DESEJA CRIAR: ")
+    dia = input("DIGITE O DIA QUE DESEJA CADASTRAR A TAREFA (aaaa-mm-dd): ")
+    valores = [tarefa, categoria, dia, "pendente"]
+    sql = "INSERT INTO tarefas (tarefa, categoria_id, data, status) VALUES (?, ?, ?, ?)"
+    cursor.execute(sql, valores)
+
+def atualizar_tarefa():
+    consulta_todo()
+    id_tarefa = input("DIGITE O ID DA TAREFA QUE DESEJA ATUALIZAR: ")
+    tarefa = input("DIGITE O NOVO NOME DA TAREFA: ")
+    valores = [tarefa, id_tarefa]
+    sql = "UPDATE tarefas SET tarefa = ? WHERE id = ?"
+    cursor.execute(sql, valores)
+
+def atualizar_data():
+    consulta_todo()
+    id_tarefa = input("DIGITE O ID DA TAREFA QUE DESEJA ATUALIZAR: ")
+    data = input("DIGITE A NOVA DATA (aaaa-mm-dd): ")
+    valores = [data, id_tarefa]
+    sql = "UPDATE tarefas SET data = ? WHERE id = ?"
+    cursor.execute(sql, valores)
+
+def excluir():
+    consulta_todo()
+    id_excluir = input("DIGITE O ID DA TAREFA QUE DESEJA EXCLUIR: ")
+    valor = [id_excluir]
+    sql = "DELETE FROM tarefas WHERE id = ?"
+    cursor.execute(sql, valor)
+
+print("1. CRIAR TAREFA\n2. ATUALIZAR NOME DA TAREFA\n3. ATUALIZAR DATA DA TAREFA\n4. EXCLUIR TAREFA")
+numero = int(input("DIGITE O NÚMERO DO QUE DESEJA FAZER: "))
+
+if numero == 1:
+    criar()
+if numero == 2:
+    atualizar_tarefa()
+if numero == 3:
+    atualizar_data()
+if numero == 4:
+    excluir()
+
+conexao.commit()
+conexao.close()
