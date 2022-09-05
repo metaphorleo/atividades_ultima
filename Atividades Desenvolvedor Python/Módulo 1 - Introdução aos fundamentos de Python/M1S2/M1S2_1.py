@@ -1,15 +1,18 @@
+#definindo os valores das moedas
 cent_5 = 0.05
 cent_10 = 0.10
 cent_25 = 0.25
 cent_50 = 0.50
 real_1 = 1
 
+#definindo a quantidade de moedas no caixa
 qtd_cent5 = 35
 qtd_cent10 = 50
 qtd_cent25 = 30
 qtd_cent50 = 15
 qtd_real1 = 19
 
+#multiplicando e somando os valores das moedas pela quantidade de moedas
 total_cent5 = (cent_5 * qtd_cent5)
 total_cent10 = (cent_10 * qtd_cent10)
 total_cent25 = (cent_25 * qtd_cent25)

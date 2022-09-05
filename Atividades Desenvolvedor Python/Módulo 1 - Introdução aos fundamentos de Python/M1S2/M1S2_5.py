@@ -1,3 +1,4 @@
+#definindo genero e altura para calcular o peso ideal de homem/mulher através de input e validacao de erro caso a resposta seja inesperada
 while True:
     try:
         Gênero = float(input("Insira 1 para Homem ou 2 para Mulher: "))

@@ -1,3 +1,4 @@
+#definindo peso e altura do paciente atraves de input, com validacao de erro em caso de resposta inesperada, e printando o IMC de acordo com o resultado
 while True:
     try:
         peso = float(input("Insira o peso do paciente em kg (apenas números e vírgula): "))
