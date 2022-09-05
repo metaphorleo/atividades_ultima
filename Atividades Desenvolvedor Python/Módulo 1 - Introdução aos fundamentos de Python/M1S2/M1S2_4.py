@@ -1,3 +1,4 @@
+#definindo valores da soma com input e validacao de erro caso a resposta nao seja a esperada
 while True:
     try:
         A = float(input("Insira o valor numérico de A: "))
@@ -22,6 +23,7 @@ while True:
     else:
         break
 
+#realizando a soma e printando as condições de resultado
 soma_ab = A + B
 
 if soma_ab > C:

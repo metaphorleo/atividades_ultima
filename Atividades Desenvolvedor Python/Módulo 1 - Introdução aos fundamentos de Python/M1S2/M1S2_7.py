@@ -1,3 +1,4 @@
+#simulando uma CLI para definir o desconto e o preco do produto, e entao printando o valor a ser cobrado
 while True:
     try:
         preço_produto = float(input("Digite o preço do produto (apenas números): "))
