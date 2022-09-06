@@ -1,3 +1,4 @@
+#definindo funcao que soma todos os argumentos dados
 def func(x, y, z):
     soma = x + y + z
     return soma

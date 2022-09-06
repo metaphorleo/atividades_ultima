@@ -1,3 +1,4 @@
+#difinindo kwargs para uma funcao de verificadao de impar ou par
 def par_impar(**kwargs):
     for ordem, numero in kwargs.items():
         if numero % 2 == 0:

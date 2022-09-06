@@ -1,3 +1,4 @@
+#definindo funcao que conta quantas letras "l" a string atribuida tem
 def func(x):
     contagem = 0
     for letra in x:

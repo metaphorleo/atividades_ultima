@@ -1,3 +1,4 @@
+#definindo uma funcao de contagem regressiva ate zero
 def contagem(numero):
     print(numero)
     if numero == 0:

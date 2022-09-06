@@ -1,3 +1,4 @@
+#definindo funcao que soma todos os argumentos dados
 def somatorio(*args):
     total = 0
     for numero in args:
