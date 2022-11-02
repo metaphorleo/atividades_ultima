@@ -22,16 +22,33 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="/static/starter-template.css" rel="stylesheet">
+    {% load mytags %}
   </head>
   <body>
   <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark">
-        <span id='linkContato' class="fs-4">Início</span>
-      </a>
-    </header>
+    <div class="container">
+      <header class="pb-3 mb-5 border-bottom">
+        <div class="row justify-content-between">
+          <div class="col-4 d-flex align-items-center">
+            <a class="fs-1 text-dark fw-bold text-decoration-none text-nowrap" href="/">Pet Online</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a href="/" class="link-secondary">
+              <svg class="bi" width="30" height="30" fill="currentColor">
+                <use xlink:href="/static/bootstrap-icons.svg#box-arrow-left"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </header>
     <main>
-      <h1 class="mb-3">Contato</h1>
+      <h1 class="mb-3">Agende um horário</h1>
+      <p>
+        {% autoescape off %}
+        Agende um horário para o banho de seu pet através do formulário abaixo ou ligue para o telefone: <br>
+        <b>{{ telefone }}</b> para falar com um de nosos representantes.
+        {% endautoescape %}
+      </p>
       <form>
         <div class="form-group">
           <label for="nome">Nome</label>
@@ -50,8 +67,8 @@
         </div>
       </form>
     </main>
-    <footer class="pt-5 my-5 text-muted border-top">
-      Curso Python Ultima School
+    <footer class="footer text-center pt-5 my-5 text-muted border-top">
+      Atividade M6S2 Ultima School por Leonardo de Góes Trindade
     </footer>
   </div>
     <script src="/static/bootstrap.bundle.min.js"></script>

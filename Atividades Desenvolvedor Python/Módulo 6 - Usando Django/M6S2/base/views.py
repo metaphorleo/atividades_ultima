@@ -5,4 +5,7 @@ def inicial(request):
     return render(request, 'inicial.html')
 
 def contato(request):
-    return render(request, 'contato.html')
+    contexto = {
+        'telefone': '(99) 99999-9999'
+    }
+    return render(request, 'contato.html', contexto)
