@@ -1,0 +1,24 @@
+{% extends "inicial.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+<h1 class="mb-3">Agende um horário</h1>
+<p>
+  {% autoescape off %}
+  Agende um horário para o banho de seu pet através do formulário abaixo ou ligue para o telefone: <br>
+  <b>{{ telefone }}</b> para falar com um de nosos representantes.
+  {% endautoescape %}
+</p>
+{% if sucesso %}
+<p class="alert alert-success">Mensagem enviada com sucesso!</p>
+{% else %}
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      {% bootstrap_form form %}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+</form>
+{% endif %}
+{% endblock %}
