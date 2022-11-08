@@ -1,75 +1,24 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contato</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/static/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="/static/starter-template.css" rel="stylesheet">
-  </head>
-  <body>
-  <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <div class="container">
-      <header class="pb-3 mb-5 border-bottom">
-        <div class="row justify-content-between">
-          <div class="col-4 d-flex align-items-center">
-            <a class="fs-1 text-dark fw-bold text-decoration-none text-nowrap" href="/">Pet Online</a>
-          </div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
-            <a href="/" class="link-secondary">
-              <svg class="bi" width="30" height="30" fill="currentColor">
-                <use xlink:href="/static/bootstrap-icons.svg#box-arrow-left"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </header>
-    <main>
-      <h1 class="mb-3">Agende um horário</h1>
-      <p>
-        {% autoescape off %}
-        Agende um horário para o banho de seu pet através do formulário abaixo ou ligue para o telefone: <br>
-        <b>{{ telefone }}</b> para falar com um de nosos representantes.
-        {% endautoescape %}
-      </p>
-      <form>
-        <div class="form-group">
-          <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" placeholder="Nome">
-        </div>
-        <div class="form-group">
-            <label for="e">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="mensagem">Mensagem</label>
-          <textarea class="form-control" id="mensagem" rows="3" maxlength="1000" placeholder="Mensagem (máximo de 1000 caractéres)"></textarea>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-        </div>
-      </form>
-    </main>
-    <footer class="footer text-center pt-5 my-5 text-muted border-top">
-      Atividade M6S2 Ultima School por Leonardo de Góes Trindade
-    </footer>
+{% extends "inicial.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+<h1 class="mb-3">Agende um horário</h1>
+<p>
+  {% autoescape off %}
+  Agende um horário para o banho de seu pet através do formulário abaixo ou ligue para o telefone: <br>
+  <b>{{ telefone }}</b> para falar com um de nosos representantes.
+  {% endautoescape %}
+</p>
+{% if sucesso %}
+<p class="alert alert-success">Mensagem enviada com sucesso!</p>
+{% else %}
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      {% bootstrap_form form %}
+    </div>
   </div>
-    <script src="/static/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+  <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+</form>
+{% endif %}
+{% endblock %}
