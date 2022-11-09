@@ -1,15 +1,12 @@
 {% extends "inicial.html" %}
 {% load bootstrap5 %}
 {% block principal %}
-<h1 class="mb-3">Fale conosco</h1>
+<h1 class="mb-3">Faça sua reserva</h1>
 <p>
-  {% autoescape off %}
-  Envie uma mensagem ou pergunta através do formulário abaixo ou ligue para o telefone: <br>
-  <b>{{ telefone }}</b> para falar com um de nossos representantes.
-  {% endautoescape %}
+  Reserve o banho para seu pet através do formulário abaixo:
 </p>
 {% if sucesso %}
-<p class="alert alert-success">Mensagem enviada com sucesso!</p>
+<p class="alert alert-success">Reserva cadastrada com sucesso!</p>
 {% else %}
 <form action="" method="post" novalidate>
   {% csrf_token %}
