@@ -18,6 +18,7 @@ Diversas tecnologias foram usadas durante as atividades, sendo elas:
 - CSS
 - Django
 - Bootstrap
+- SQL
 
 Git
 ---
