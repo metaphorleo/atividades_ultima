@@ -17,7 +17,7 @@ class Reserva(models.Model):
     dia_reserva = models.DateField(verbose_name="Dia da reserva", help_text='dd/mm/aaaa')
     turno = models.CharField(verbose_name='Turno', max_length=10, choices=TURNO_OPCOES)
     tamanho = models.IntegerField(verbose_name='Tamanho', choices=TAMANHO_OPCOES)
-    observacoes = models.TextField(blank=True)
+    observacoes = models.TextField(verbose_name='Observações', blank=True)
 
     def __str__(self):
         return f'{self.nome}: {self.dia_reserva} - {self.turno}'
