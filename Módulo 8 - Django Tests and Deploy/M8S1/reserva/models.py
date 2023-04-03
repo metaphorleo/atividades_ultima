@@ -18,7 +18,7 @@ class Reserva(models.Model):
     dia_reserva = models.DateField(verbose_name="Dia da reserva", help_text='dd/mm/aaaa')
     turno = models.CharField(verbose_name='Turno', max_length=10, choices=TURNO_OPCOES)
     observacoes = models.TextField(verbose_name='Observações', blank=True)
-    petshop= models.ForeignKey('Petshop', related_name='reservas', on_delete = models.CASCADE, blank = True, null = True)
+    petshop = models.ForeignKey('Petshop', related_name='reservas', on_delete = models.CASCADE, blank = True, null = True)
 
     def __str__(self):
         return f'{self.nome}: {self.dia_reserva} - {self.turno}'
@@ -32,6 +32,9 @@ class Petshop(models.Model):
     rua = models.CharField(verbose_name='Endereço', max_length=50)
     numero = models.CharField(verbose_name='Número', max_length=50)
     bairro = models.CharField(verbose_name='Bairro', max_length=50)
+
+    def qtd_reservas(self):
+        return self.reservas.count()
 
     def __str__(self):
         return f'{self.nome}: {self.rua}, {self.numero} - {self.bairro}'
