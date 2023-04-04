@@ -1,0 +1,17 @@
+{% extends "inicial.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+<h1 class="mb-3">Faça sua reserva</h1>
+<p>
+  Reserve o banho para seu pet através do formulário abaixo:
+</p>
+{% if sucesso %}
+<p class="alert alert-success">Reserva realizada com sucesso, em breve iremos entrar em contato!</p>
+{% else %}
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <button type="submit" class="btn btn-primary mt-3">Realizar reserva</button>
+</form>
+{% endif %}
+{% endblock %}
